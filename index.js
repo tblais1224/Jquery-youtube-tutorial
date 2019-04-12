@@ -1,28 +1,13 @@
-//this is same as doing document ready function
-$(function() {
+'use strict';
+//every 1000ms run the function
+// var myInterval = setInterval(function () {
+//     console.log(new date());
+// }, 1000);
 
-    $('.tab-panels .tabs li').on('click', function() {
-        
-        var $panel = $(this).closest('.tab-panels');
-
-        $panel.find('.tabs li.active').removeClass('active');
-        $(this).addClass('active');
-
-        //figure out which panel to show
-        var panelToShow = $(this).attr('rel');
-
-        //hide current panel
-        $panel.find('.panel.active').slideUp(300, showNextPanel);
-
-        //show next panel
-        function showNextPanel() {
-            $(this).removeClass('active');
-
-            $('#'+panelToShow).slideDown(300, function() {
-                $(this).addClass('active');
-            });
-        }
-    });
-
-
+$(function () {
+    setInterval(function () {
+        $('#slider .slides').animate({
+            'margin-left': '-=720px'
+        }, 1000)
+    }, 3000);
 });
